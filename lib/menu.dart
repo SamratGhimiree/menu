@@ -26,14 +26,17 @@ class MenuScreen extends StatelessWidget {
                 MenuItem(
                   name: 'Burger',
                   image: 'assets/images/burger.jpg',
+                  price: 200.0,
                 ),
                 MenuItem(
                   name: 'Pizza',
                   image: 'assets/images/pizza.jpg',
+                  price: 300.0,
                 ),
                 MenuItem(
                   name: 'Fries',
                   image: 'assets/images/fries.jpg',
+                  price: 100.0,
                 ),
               ],
             ),
@@ -43,14 +46,17 @@ class MenuScreen extends StatelessWidget {
                 MenuItem(
                   name: 'Pancakes',
                   image: 'assets/images/pancakes.jpg',
+                  price: 250.0,
                 ),
                 MenuItem(
                   name: 'Omelette',
                   image: 'assets/images/omelette.jpg',
+                  price: 150.0,
                 ),
                 MenuItem(
                   name: 'Toast',
                   image: 'assets/images/toast.jpg',
+                  price: 100.0,
                 ),
               ],
             ),
@@ -60,14 +66,17 @@ class MenuScreen extends StatelessWidget {
                 MenuItem(
                   name: 'Whiskey',
                   image: 'assets/images/whiskey.jpg',
+                  price: 500.0,
                 ),
                 MenuItem(
                   name: 'Vodka',
                   image: 'assets/images/vodka.jpg',
+                  price: 450.0,
                 ),
                 MenuItem(
                   name: 'Wine',
                   image: 'assets/images/wine.jpg',
+                  price: 600.0,
                 ),
               ],
             ),
@@ -77,14 +86,17 @@ class MenuScreen extends StatelessWidget {
                 MenuItem(
                   name: 'Coke',
                   image: 'assets/images/coke.jpg',
+                  price: 50.0,
                 ),
                 MenuItem(
                   name: 'Pepsi',
                   image: 'assets/images/pepsi.jpg',
+                  price: 50.0,
                 ),
                 MenuItem(
                   name: 'Lemonade',
                   image: 'assets/images/lemonade.jpg',
+                  price: 60.0,
                 ),
               ],
             ),
@@ -98,8 +110,9 @@ class MenuScreen extends StatelessWidget {
 class MenuItem {
   final String name;
   final String image;
+  final double price; // Updated to double
 
-  MenuItem({required this.name, required this.image});
+  MenuItem({required this.name, required this.image, required this.price});
 }
 
 class FoodList extends StatelessWidget {
@@ -119,14 +132,14 @@ class FoodList extends StatelessWidget {
           child: ListTile(
             leading: Image.asset(
               item.image,
-              width: 20,
-              height: 20,
+              width: 50,
+              height: 50,
               fit: BoxFit.cover,
             ),
             title: Text(item.name),
+            subtitle: Text('Price: Rs. ${item.price.toStringAsFixed(2)}'),
             trailing: ElevatedButton(
               onPressed: () {
-                // Simulate order placement
                 ScaffoldMessenger.of(context).showSnackBar(
                   SnackBar(content: Text('${item.name} added to order')),
                 );
