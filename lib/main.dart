@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'cart_page.dart';
 import 'menu.dart';  // Import the menu.dart file
+import 'cart.dart';
+
+final cart = Cart();  // Shared cart instance
 
 void main() => runApp(MyApp());
 
@@ -32,7 +36,7 @@ class HomeScreen extends StatelessWidget {
               // Navigate to MenuScreen
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => MenuScreen()),
+                MaterialPageRoute(builder: (context) => MenuScreen(cart: cart,)),
               );
             },
           ),
@@ -65,6 +69,15 @@ class HomeScreen extends StatelessWidget {
                 SnackBar(content: Text('Settings screen coming soon!')),
               );
             },
+          ),
+          ElevatedButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CartPage(cart: cart)),
+              );
+            },
+            child: Text('View Cart'),
           ),
         ],
       ),
