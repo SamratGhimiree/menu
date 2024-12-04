@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:menu/Admin%20Panel.dart';
 import 'cart_page.dart';
 import 'menu.dart';  // Import the menu.dart file
 import 'cart.dart';
@@ -51,13 +52,12 @@ class HomeScreen extends StatelessWidget {
             },
           ),
           HomeIcon(
-            icon: Icons.table_bar,
-            label: 'Tables',
+            icon: Icons.admin_panel_settings,
+            label: 'Admin Panel',
             onTap: () {
-              // Navigate to Tables screen (replace with your screen)
-              ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text('Tables screen coming soon!')),
-              );
+            Navigator.push(context,
+            MaterialPageRoute(builder: (context)=>AdminPanel()),
+            );
             },
           ),
           HomeIcon(
